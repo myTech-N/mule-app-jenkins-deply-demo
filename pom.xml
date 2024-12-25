@@ -35,8 +35,8 @@
                       <muleVersion>${mule.version}</muleVersion>
                       <objectStoreV2>true</objectStoreV2>
                       <applicationName>${project.artifactId}${appname.env}</applicationName>
-                      <username>username</username>
-                      <password>mypassword</password>
+                      <username>${anypoint.username}</username>
+                      <password>${anypoint.password}</password>
                       <!-- <businessGroup>engineering\devops</businessGroup> -->
                       <target>CloudHub</target>
                       <!-- One of: server, serverGroup, cluster -->
