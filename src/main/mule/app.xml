@@ -20,7 +20,7 @@ envelope:
 {
 	name: "Negussie",
 	project: "mule project jenkins deploy demo",
-	date: "12/23/2024"
+	date: now()
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
@@ -29,7 +29,16 @@ envelope:
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-payload]]></ee:set-payload>
+{
+    "name": payload.envelope.name,
+    "myProject": payload.envelope.project,
+    "testDate": now() as String {format: "MM/dd/yyyy"},
+    "test":
+    {
+        "fName": payload.envelope.name,
+        "address": "DC area"
+    }
+}]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="5da56d1e-0c6a-4391-ae8a-c1a22f4ae11d" />
